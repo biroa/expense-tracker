@@ -57,15 +57,10 @@ import { useI18n } from 'vue-i18n';
 import NavLink from 'components/Nav/NavLink.vue';
 import useLightOrDark from 'src/composables/useLightOrDark';
 import { useStoreEntries } from 'stores/storeEntries';
+import type { NavLinkItem } from 'src/types';
 
 const { t } = useI18n();
 const storeEntries = useStoreEntries();
-
-interface NavLinkItem {
-  title: string;
-  icon: string;
-  link: string;
-}
 
 const navLinks = computed<NavLinkItem[]>(() => [
   {

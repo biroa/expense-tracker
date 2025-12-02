@@ -1,10 +1,7 @@
 import { defineStore } from 'pinia';
 import { ref, reactive } from 'vue';
 import type { Entry } from 'src/models/Entry';
-
-export interface StoreOptions {
-  sort: boolean;
-}
+import type { StoreOptions } from 'src/types';
 
 export const useStoreEntries = defineStore('entries', () => {
   // State
