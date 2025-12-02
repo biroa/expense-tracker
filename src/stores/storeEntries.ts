@@ -1,12 +1,6 @@
 import { defineStore } from 'pinia';
 import { ref, reactive } from 'vue';
-
-export interface Entry {
-  id: string;
-  name: string;
-  amount: number;
-  paid: boolean;
-}
+import type { Entry } from 'src/models/Entry';
 
 export interface StoreOptions {
   sort: boolean;

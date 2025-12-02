@@ -11,14 +11,9 @@
 </template>
 
 <script setup lang="ts">
-export interface NavLinkProps {
-  title: string;
-  caption?: string;
-  link?: string;
-  icon?: string;
-}
+import type {NavLinkItem} from 'src/types/index.ts'
 
-const props = withDefaults(defineProps<NavLinkProps>(), {
+const props = withDefaults(defineProps<NavLinkItem>(), {
   caption: '',
   link: '#',
   icon: '',
