@@ -42,11 +42,14 @@ export class Entry implements EntryData {
     return new Entry(this.name, this.amount, this.paid, this.id);
   }
 
-  // Serialization for LocalStorage
+  // Loading data from LocalStorage. LocalStorage stores plain JSON objects, so we load it back to have proper instances
+  // with methods.
   static fromObject(obj: EntryData): Entry {
     return new Entry(obj.name, obj.amount, obj.paid, obj.id);
   }
 
+  // Convert Entry instance into a plain object (serialization). Use it before saving to LocalStorage.
+  // JSON.stringify() can't preserve class methods and prototypes.
   toObject(): EntryData {
     return {
       id: this.id,
