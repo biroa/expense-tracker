@@ -41,3 +41,31 @@ quasar build
 ### Customize the configuration
 
 See [Configuring quasar.config.js](https://v2.quasar.dev/quasar-cli-vite/quasar-config-js).
+
+## Run the tests
+
+cd quasar-moneyballs-ts/expense-tracker
+
+### Run specific test file
+
+```bash
+npm test -- Settings.test.ts
+```
+
+### Run tests matching a pattern
+
+```bash
+npm test -- --grep "Settings"
+```
+
+### Run a specific describe block
+
+```bash
+npm test -- --grep "dark mode helpers"
+```
+
+### Run a specific test
+
+```bash
+npm test -- --grep "should detect dark mode"
+```

@@ -18,3 +18,11 @@ export interface NavLinkItem {
   link?: string;
   icon?: string;
 }
+
+// Settings types
+export interface SettingsData {
+  promptToDelete: boolean;
+  showRunningBalance: boolean;
+  currencySymbol: string;
+  darkMode: boolean | 'auto';
+}
