@@ -49,23 +49,41 @@ cd quasar-moneyballs-ts/expense-tracker
 ### Run specific test file
 
 ```bash
-npm test -- Settings.test.ts
+npm test Settings.test.ts
 ```
 
 ### Run tests matching a pattern
 
 ```bash
-npm test -- --grep "Settings"
+npm test -- -t "Settings"
 ```
 
-### Run a specific describe block
+It will skip the Entry.test.ts
+
+```
+ DEV  v4.0.14 /home/biroa/Work/quasar/quasar-moneyballs-ts/expense-tracker
+
+ ↓ src/models/__tests__/Entry.test.ts (15 tests | 15 skipped)
+ ✓ src/models/__tests__/Settings.test.ts (10 tests) 3ms
+
+ Test Files  1 passed | 1 skipped (2)
+      Tests  10 passed | 15 skipped (25)
+   Start at  11:58:42
+   Duration  262ms (transform 63ms, setup 0ms, import 81ms, tests 3ms, environment 185ms)
+
+ PASS  Waiting for file changes...
+       press h to show help, press q to quit
+
+```
+
+### Run a specific described block
 
 ```bash
-npm test -- --grep "dark mode helpers"
+npm test -- -t "dark mode helpers"
 ```
 
 ### Run a specific test
 
 ```bash
-npm test -- --grep "should detect dark mode"
+npm test --grep "should detect dark mode"
 ```
