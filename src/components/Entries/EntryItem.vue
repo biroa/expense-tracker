@@ -23,26 +23,32 @@
         {{ element.name }}
       </q-item-section>
 
-      <!-- Running Balance (optional) -->
-      <q-item-section
-        v-if="storeSettings.settings.showRunningBalance"
-        side
-        class="running-balance text-grey-6"
-      >
-        {{ useCurrencyFy(parseInt(String(storeEntries.runningBalances[index]))) }}
-      </q-item-section>
-
       <!-- Amount -->
       <q-item-section
         side
         class="text-weight-bold"
         :class="
           [
-          element.amount >= 0 ? 'text-positive' : 'text-negative',
-          { 'text-strike': element.paid }
+          element.amount >= 0 ? 'text-positive' : 'text-negative'
           ]"
       >
-        {{ element.formatted }}
+        <span
+          :class="[{ 'text-strike': element.paid }]"
+        >
+          {{ element.formatted }}
+        </span>
+        <!-- Running Balance (optional) -->
+        <q-chip
+          v-if="storeSettings.settings.showRunningBalance"
+          class="running-balance"
+          :class="[
+            storeSettings.settings.darkMode? 'text-grey-4' : 'text-black',
+          ]"
+          size="12px"
+          dense
+          outline>
+          {{ useCurrencyFy(parseInt(String(storeEntries.runningBalances[index]))) }}
+        </q-chip>
       </q-item-section>
     </q-item>
   </q-slide-item>
