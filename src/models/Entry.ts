@@ -58,4 +58,14 @@ export class Entry implements EntryData {
       paid: this.paid,
     };
   }
+
+  static getDefaultEntries(): Entry[] {
+    return [
+      new Entry('Salary', 4999.99, true, 'id1'),
+      new Entry('Rent', -999, false, 'id2'),
+      new Entry('Phone', -14.99, false, 'id3'),
+      new Entry('Unknown', 0, false, 'id4'),
+    ];
+  }
+
 }

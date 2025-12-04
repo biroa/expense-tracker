@@ -26,3 +26,13 @@ export interface SettingsData {
   currencySymbol: string;
   darkMode: boolean | 'auto';
 }
+
+// FormattedEntry
+export interface FormattedEntry {
+  id: string;
+  name: string;
+  amount: number;
+  paid: boolean;
+  formatted: string;
+  isPositive: boolean;
+}

@@ -1,1 +1,44 @@
 // app global css in SCSS form
+.entries {
+  .q-slide-item {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .entry-item {
+    background: white;
+  }
+
+  .running-balance {
+    font-size: 0.85em;
+  }
+
+  .handle {
+    cursor: grab;
+
+    &:active {
+      cursor: grabbing;
+    }
+  }
+}
+
+.text-strike {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+.balance-row {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+// Dark mode adjustments
+body.body--dark {
+  .entries {
+    .entry-item {
+      background: var(--q-dark);
+    }
+
+    .q-slide-item {
+      border-bottom-color: rgba(255, 255, 255, 0.1);
+    }
+  }
+}
