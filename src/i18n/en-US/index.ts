@@ -26,5 +26,8 @@ export default {
     showRunningBalance: 'Show running balance',
     currencySymbol: 'Currency symbol',
     darkMode: 'Dark mode',
+    light: 'Light',
+    dark: 'Dark',
+    auto: 'Auto',
   },
 };

@@ -32,7 +32,6 @@
       v-model="leftDrawerOpen"
       class="bg-primary"
       show-if-above
-      bordered
       :width="250"
       :breakpoint="767"
     >
