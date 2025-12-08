@@ -45,7 +45,7 @@ export const useStoreEntries = defineStore('entries', () => {
     entries.value.push(entry);
     Notify.create({
       message: 'Entry added!',
-      position: 'top',
+      position: 'bottom-left',
       icon: 'add_circle',
       color: 'positive',
     });
@@ -57,7 +57,7 @@ export const useStoreEntries = defineStore('entries', () => {
       entries.value.splice(index, 1);
       Notify.create({
         message: 'Entry deleted!',
-        position: 'top',
+        position: 'bottom-left',
         icon: 'delete_forever',
         color: 'negative',
       });
@@ -71,7 +71,7 @@ export const useStoreEntries = defineStore('entries', () => {
       entry.update(updates);
       Notify.create({
         message: 'Entry updated!',
-        position: 'top',
+        position: 'bottom-left',
         icon: 'edit',
         color: 'positive',
       });

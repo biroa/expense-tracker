@@ -9,7 +9,8 @@
   }
 
   .running-balance {
-    font-size: 0.85em;
+    right: -5px;
+    bottom: -9px;
   }
 
   .handle {
@@ -38,6 +39,7 @@ body.body--dark {
   .entries {
     .entry-item {
       background: var(--q-dark);
+      font-size: 1.2rem;
     }
 
     .q-slide-item {
