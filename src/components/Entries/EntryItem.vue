@@ -19,35 +19,83 @@
       </q-item-section>
 
       <!-- Entry Name -->
-      <q-item-section :class="{ 'text-strike': element.paid }">
-        {{ element.name }}
+      <q-item-section
+        :class="[
+          useAmountColorClass(element.amount),
+          { 'text-strike': element.paid }
+        ]"
+      >
+        <q-item-label
+        >
+          {{ element.name }}
+        </q-item-label>
+        <q-popup-edit
+          :model-value="element.name"
+          auto-save
+          anchor="top left"
+          :cover="false"
+          :offset="[17, 12]"
+          buttons
+          :label-set="t('common.ok')"
+          @save="onNameUpdate"
+          v-slot="scope"
+        >
+          <q-input
+            v-model="scope.value"
+            dense
+            autofocus
+            input-class="text-weight-bold"
+            @keyup.enter="scope.set"
+            v-select-all
+          />
+        </q-popup-edit>
       </q-item-section>
 
       <!-- Amount -->
       <q-item-section
         side
-        class="text-weight-bold"
-        :class="
-          [
-          element.amount >= 0 ? 'text-light-green-6' : 'text-negative'
-          ]"
+        class="text-weight-bold relative-position vertical-middle"
+        :class="[useAmountColorClass(element.amount)]"
       >
-        <span
+        <q-item-label
+          class=""
           :class="[{ 'text-strike': element.paid }]"
         >
           {{ element.formatted }}
-        </span>
+        </q-item-label>
+        <q-popup-edit
+          :model-value="element.amount"
+          auto-save
+          anchor="top right"
+          self="top right"
+          :cover="false"
+          :offset="[17, 12]"
+          buttons
+          :label-set="t('common.ok')"
+          @save="onAmountUpdate"
+          v-slot="scope"
+        >
+          <q-input
+            v-model.number="scope.value"
+            dense
+            autofocus
+            input-class="text-weight-bold text-right"
+            @keyup.enter="scope.set"
+            step="0.01"
+            type="number"
+            v-select-all
+          />
+        </q-popup-edit>
         <!-- Running Balance (optional) -->
         <q-chip
           v-if="storeSettings.settings.showRunningBalance"
-          class="running-balance"
-          :class="[
-            storeSettings.settings.darkMode? 'text-grey-4' : 'text-black',
-          ]"
-          size="12px"
+          class="relative-position running-balance q-p-sm"
+          :class="[useAmountColorClass(storeEntries.runningBalances[index]?? 0)]"
+          size="1.1rem"
           dense
-          outline>
-          {{ useCurrencyFy(parseInt(String(storeEntries.runningBalances[index]))) }}
+          outline
+        >
+          {{ useCurrencyFy(storeEntries.runningBalances[index] ?? 0) }}
         </q-chip>
       </q-item-section>
     </q-item>
@@ -60,7 +108,9 @@ import { useI18n } from 'vue-i18n';
 import { useStoreEntries } from 'stores/storeEntries';
 import { useStoreSettings } from 'stores/storeSettings';
 import useCurrencyFy from 'src/composables/useCurrencyFy';
-import type { FormattedEntry } from 'src/types/index.ts'
+import useAmountColorClass from 'src/composables/useAmountColorClass';
+import vSelectAll from 'src/directives/directiveSelectAll';
+import type { FormattedEntry } from 'src/types/index.ts';
 
 const props = defineProps<{
   element: FormattedEntry;
@@ -92,6 +142,14 @@ function onSlideRight({ reset }: { reset: () => void }): void {
   } else {
     storeEntries.deleteEntry(props.element.id);
   }
+}
+
+function onNameUpdate(value: string): void {
+  storeEntries.updateEntry(props.element.id, { name: value });
+}
+
+function onAmountUpdate(value: number): void {
+  storeEntries.updateEntry(props.element.id, { amount: value });
 }
 </script>
 
