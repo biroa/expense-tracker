@@ -1,20 +1,12 @@
 <template>
   <q-layout view="hHh lpR lFf">
-    <q-header :elevated="useLightOrDark(true, false)">
+    <q-header>
       <q-toolbar>
-        <q-btn
-          flat
-          dense
-          round
-          icon="menu"
-          aria-label="Menu"
-          @click="toggleLeftDrawer"
-        />
+        <q-btn flat dense round icon="menu" aria-label="Menu" @click="toggleLeftDrawer" />
 
         <q-toolbar-title>
           <div class="absolute-center">
-            <q-icon name="savings" />
-            {{ t('layout.appName') }}
+            <q-icon :name="`img:${expenseTracker}`" style="width: 250px; height: 40px" />
           </div>
         </q-toolbar-title>
         <q-btn
@@ -53,8 +45,8 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue';
 import { useI18n } from 'vue-i18n';
+import expenseTracker from 'assets/expense-tracker.svg';
 import NavLink from 'components/Nav/NavLink.vue';
-import useLightOrDark from 'src/composables/useLightOrDark';
 import { useStoreEntries } from 'stores/storeEntries';
 import type { NavLinkItem } from 'src/types';
 
