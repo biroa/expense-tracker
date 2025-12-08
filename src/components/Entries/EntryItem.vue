@@ -29,7 +29,7 @@
         class="text-weight-bold"
         :class="
           [
-          element.amount >= 0 ? 'text-positive' : 'text-negative'
+          element.amount >= 0 ? 'text-light-green-6' : 'text-negative'
           ]"
       >
         <span
@@ -81,7 +81,7 @@ function onSlideRight({ reset }: { reset: () => void }): void {
   if (storeSettings.settings.promptToDelete) {
     $q.dialog({
       title: t('entries.deleteConfirmTitle'),
-      message: `<strong>${t('entries.deleteConfirm')}:</strong> ${props.element.name} : ${props.element.amount}`,
+      message: `${t('entries.deleteConfirm')} : ${props.element.name} : ${props.element.amount}`,
       cancel: true,
       persistent: true,
     }).onOk(() => {

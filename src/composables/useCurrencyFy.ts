@@ -9,5 +9,5 @@ export default function useCurrencyFy(amount: number): string {
     maximumFractionDigits: 2,
   });
 
-  return amount < 0 ? `${symbol} ${formatted} -` : `${symbol} ${formatted} +`;
+  return amount < 0 ? `- ${symbol} ${formatted}` : `+ ${symbol} ${formatted}`;
 }
