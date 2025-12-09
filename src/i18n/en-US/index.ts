@@ -29,5 +29,6 @@ export default {
     light: 'Light',
     dark: 'Dark',
     auto: 'Auto',
+    language: 'Language',
   },
 };

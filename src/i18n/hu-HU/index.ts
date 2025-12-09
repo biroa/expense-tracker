@@ -1,0 +1,34 @@
+export default {
+  navigation: {
+    title: 'Navigáció',
+    entries: 'Bejegyzések',
+    settings: 'Beállítások',
+  },
+  layout: {
+    appName: 'Expense Tracker',
+    sort: 'Rendezés',
+    done: 'Kész',
+  },
+  entries: {
+    balance: 'Egyenleg',
+    namePlaceholder: 'Név',
+    amountPlaceholder: 'Bevétel vagy kiadás',
+    nothingHere: 'Még nem rendelkezel bejegyzésekkel! Adj hozzá egyet!',
+    deleteConfirmTitle: 'Jóváhagyás',
+    deleteConfirm: 'Bejelgyzés törlése?',
+    added: 'Bejelgyzés hozzáadása!',
+    deleted: 'Bejelgyzés törölve!',
+    updated: 'Bejelgyzés frissítve!',
+  },
+  settings: {
+    title: 'Beállítások',
+    promptToDelete: 'Törlés előtti figyelmeztetés (igen/nem).',
+    showRunningBalance: 'A folyó számla mutatása',
+    currencySymbol: 'Valuta szimbólum beállítása',
+    darkMode: 'Szín módok',
+    light: 'Világos',
+    dark: 'Sötét',
+    auto: 'Autómatikus',
+    language: 'Nyelv',
+  },
+};

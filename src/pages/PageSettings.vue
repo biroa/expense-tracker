@@ -63,6 +63,12 @@
           />
         </q-item-section>
       </q-item>
+      <q-item>
+        <q-item-section>
+          <q-item-label>Language</q-item-label>
+        </q-item-section>
+        <q-item-section side><LangSelector/> </q-item-section>
+      </q-item>
     </q-list>
   </q-page>
 </template>
@@ -71,6 +77,7 @@
 import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { useStoreSettings } from 'stores/storeSettings';
+import LangSelector from 'components/Language/LangSelector.vue';
 
 const { t } = useI18n();
 const storeSettings = useStoreSettings();
@@ -83,6 +90,11 @@ interface SelectOption {
 interface DarkModeOption {
   label: string;
   value: boolean | 'auto';
+}
+
+interface languageCodeOptions {
+  label: string;
+  value: string;
 }
 
 const currencyOptions = computed<SelectOption[]>(() => [
@@ -98,5 +110,10 @@ const darkModeOptions = computed<DarkModeOption[]>(() => [
   { label: t('settings.light'), value: false },
   { label: t('settings.dark'), value: true },
   { label: t('settings.auto'), value: 'auto' },
+]);
+
+const languageCodeOptions = computed<languageCodeOptions[]>(() => [
+  { label: t('language-en'), value: 'en-EN' },
+  { label: t('language-hu'), value: 'hu-HU' },
 ]);
 </script>
