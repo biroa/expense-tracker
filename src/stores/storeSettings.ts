@@ -1,9 +1,7 @@
 import { defineStore } from 'pinia';
 import { reactive, watch } from 'vue';
-import { Dark, LocalStorage } from 'quasar';
-//import { Settings } from 'src/models/Settings';
+import { Dark, LocalStorage, Lang } from 'quasar';
 import type { SettingsData } from 'src/types';
-
 export const useStoreSettings = defineStore('settings', () => {
   // State - using a reactive object that mirrors a Settings class
   const settings = reactive<SettingsData>({
@@ -11,6 +9,7 @@ export const useStoreSettings = defineStore('settings', () => {
     showRunningBalance: false,
     currencySymbol: '$',
     darkMode: true,
+    languageCode: Lang.props.isoName,
   });
 
   // Watch dark mode

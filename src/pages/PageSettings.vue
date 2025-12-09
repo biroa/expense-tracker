@@ -92,11 +92,6 @@ interface DarkModeOption {
   value: boolean | 'auto';
 }
 
-interface languageCodeOptions {
-  label: string;
-  value: string;
-}
-
 const currencyOptions = computed<SelectOption[]>(() => [
   { label: '$ (Dollar)', value: '$' },
   { label: '€ (Euro)', value: '€' },
@@ -112,8 +107,4 @@ const darkModeOptions = computed<DarkModeOption[]>(() => [
   { label: t('settings.auto'), value: 'auto' },
 ]);
 
-const languageCodeOptions = computed<languageCodeOptions[]>(() => [
-  { label: t('language-en'), value: 'en-EN' },
-  { label: t('language-hu'), value: 'hu-HU' },
-]);
 </script>

@@ -1,10 +1,12 @@
 import type { SettingsData } from 'src/types';
+import { getDefaultLanguage } from 'src/composables/useDefaultLanguage';
 
 export class Settings implements SettingsData {
   promptToDelete: boolean;
   showRunningBalance: boolean;
   currencySymbol: string;
   darkMode: boolean | 'auto';
+  languageCode: string;
 
   // Default settings
   static readonly DEFAULTS: SettingsData = {
@@ -12,6 +14,7 @@ export class Settings implements SettingsData {
     showRunningBalance: false,
     currencySymbol: '$',
     darkMode: true,
+    languageCode: getDefaultLanguage(),
   };
 
   constructor(data?: Partial<SettingsData>) {
@@ -20,6 +23,7 @@ export class Settings implements SettingsData {
     this.showRunningBalance = merged.showRunningBalance;
     this.currencySymbol = merged.currencySymbol;
     this.darkMode = merged.darkMode;
+    this.languageCode = merged.languageCode;
   }
 
   // Business logic methods (testable)
@@ -47,9 +51,11 @@ export class Settings implements SettingsData {
 
   update(updates: Partial<SettingsData>): void {
     if (updates.promptToDelete !== undefined) this.promptToDelete = updates.promptToDelete;
-    if (updates.showRunningBalance !== undefined) this.showRunningBalance = updates.showRunningBalance;
+    if (updates.showRunningBalance !== undefined)
+      this.showRunningBalance = updates.showRunningBalance;
     if (updates.currencySymbol !== undefined) this.currencySymbol = updates.currencySymbol;
     if (updates.darkMode !== undefined) this.darkMode = updates.darkMode;
+    if (updates.languageCode !== undefined) this.languageCode = updates.languageCode;
   }
 
   reset(): void {
@@ -67,6 +73,7 @@ export class Settings implements SettingsData {
       showRunningBalance: this.showRunningBalance,
       currencySymbol: this.currencySymbol,
       darkMode: this.darkMode,
+      languageCode: this.languageCode,
     };
   }
 }

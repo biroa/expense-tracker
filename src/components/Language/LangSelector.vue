@@ -14,8 +14,9 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n';
 import { ref, watch } from 'vue';
-
+import { useStoreSettings } from 'stores/storeSettings.js';
 const { locale } = useI18n({ useScope: 'global' });
+const storeSetting = useStoreSettings();
 
 const appLanguages = [
   { nativeName: 'English', isoName: 'en-US' },
@@ -31,6 +32,7 @@ const lang = ref(locale.value);
 
 watch(lang, (val) => {
   locale.value = val;
+  storeSetting.settings.languageCode = lang.value;
 });
 </script>
 <style scoped></style>

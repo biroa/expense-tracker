@@ -25,6 +25,7 @@ export interface SettingsData {
   showRunningBalance: boolean;
   currencySymbol: string;
   darkMode: boolean | 'auto';
+  languageCode: string;
 }
 
 // FormattedEntry
