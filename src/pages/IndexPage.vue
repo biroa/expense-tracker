@@ -29,7 +29,7 @@
         enter-active-class="animated fadeInUp"
         leave-active-class="animated fadeOutDown"
       >
-        <Balance v-if="parseInt(String(storeEntries.entries.length)) > 0" />
+        <Balance v-if="storeEntries.entries.length > 0" />
       </transition>
       <AddEntry />
     </q-footer>
@@ -65,6 +65,6 @@ const formattedEntries = computed(() =>
     paid: entry.paid,
     formatted: useCurrencyFy(entry.amount),
     isPositive: entry.amount >= 0,
-  }))
+  })),
 );
 </script>

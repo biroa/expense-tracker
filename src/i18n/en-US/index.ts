@@ -19,6 +19,7 @@ export default {
     added: 'Entry added!',
     deleted: 'Entry deleted!',
     updated: 'Entry updated!',
+    paid: 'Paid',
   },
   settings: {
     title: 'Settings',

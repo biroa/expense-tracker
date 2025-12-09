@@ -58,7 +58,6 @@ const addEntryForm = reactive<AddEntryFormData>({
 
 function addEntryFormReset(): void {
   Object.assign(addEntryForm, addEntryFormDefault);
-  console.log(addEntryForm);
   nameRef.value?.focus();
 }
 

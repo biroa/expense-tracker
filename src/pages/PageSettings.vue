@@ -65,9 +65,9 @@
       </q-item>
       <q-item>
         <q-item-section>
-          <q-item-label>Language</q-item-label>
+          <q-item-label>{{ t('settings.language') }}</q-item-label>
         </q-item-section>
-        <q-item-section side><LangSelector/> </q-item-section>
+        <q-item-section side><LangSelector /> </q-item-section>
       </q-item>
     </q-list>
   </q-page>
@@ -106,5 +106,4 @@ const darkModeOptions = computed<DarkModeOption[]>(() => [
   { label: t('settings.dark'), value: true },
   { label: t('settings.auto'), value: 'auto' },
 ]);
-
 </script>

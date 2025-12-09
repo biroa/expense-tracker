@@ -19,6 +19,7 @@ export default {
     added: 'Bejelgyzés hozzáadása!',
     deleted: 'Bejelgyzés törölve!',
     updated: 'Bejelgyzés frissítve!',
+    paid: 'Kifizetve',
   },
   settings: {
     title: 'Beállítások',
