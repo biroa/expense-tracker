@@ -21,7 +21,7 @@ export const useStoreSettings = defineStore('settings', () => {
     (value) => {
       Dark.set(value);
     },
-    { immediate: true }
+    { immediate: true, deep: true }
   );
 
   // Watch settings for auto-save
@@ -29,13 +29,13 @@ export const useStoreSettings = defineStore('settings', () => {
 
   // Actions
   function saveSettings(): void {
-    LocalStorage.set('settings', settings);
+    LocalStorage.set('settings', settings.value);
   }
 
   function loadSettings(): void {
     const saved = LocalStorage.getItem<SettingsData>('settings');
     if (saved) {
-      Object.assign(settings, saved);
+      Object.assign(settings.value, saved);
     }
   }
 
