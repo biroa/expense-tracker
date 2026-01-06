@@ -9,5 +9,5 @@ export function getDefaultLanguage(): string {
     return storageSettingsData.languageCode;
   }
 
-  return Lang.props.isoName ?? 'en-US';
+  return Lang.props?.isoName ?? 'en-US';
 }

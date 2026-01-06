@@ -99,6 +99,7 @@ describe('Settings', () => {
         promptToDelete: true,
         showRunningBalance: false,
         currencySymbol: '€',
+        languageCode: "en-US",
         darkMode: true,
       });
     });
