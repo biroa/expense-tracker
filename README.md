@@ -87,3 +87,11 @@ npm test -- -t "dark mode helpers"
 ```bash
 npm test --grep "should detect dark mode"
 ```
+## To-do
+````
+To-Do 
+- I'm aware of the settings page loses settings value when we navigate away (2026-01-06)
+- Add unit tests for PINIA stores
+- Planning to test the app with (Playwright e2e testing)
+- AI integration
+````
