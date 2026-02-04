@@ -68,4 +68,19 @@ export class Entry implements EntryData {
     ];
   }
 
+
+  /**
+   * Validates if an object has the required shape to be an EntryData.
+   * Used to protect against corrupted localStorage data at runtime.
+   */
+  static isValidEntryData(obj: unknown): obj is EntryData {
+    if (typeof obj !== 'object' || obj === null) return false;
+    const entry = obj as EntryData;
+    return (
+      typeof entry.id === 'string' &&
+      typeof entry.name === 'string' &&
+      typeof entry.amount === 'number' &&
+      typeof entry.paid === 'boolean'
+    );
+  }
 }

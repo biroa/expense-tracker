@@ -99,11 +99,16 @@ export const useStoreEntries = defineStore('entries', () => {
   }
 
   function loadEntries(): void {
-    const saved = LocalStorage.getItem<EntryData[]>('entries');
-    if (saved && saved.length > 0) {
+    const saved = LocalStorage.getItem<EntryData>('entries');
+
+    // Validate data from localStorage
+    if (Array.isArray(saved) && saved.length > 0 && Entry.isValidEntryData(saved)) {
       entries.value = saved.map((obj) => Entry.fromObject(obj));
-    }else{
-      // Load default entries when no saved data exists
+    } else {
+      // Load default entries when no saved data exists or data is invalid
+      if (saved) {
+        console.warn('Invalid entries data in localStorage, loading defaults');
+      }
       entries.value = Entry.getDefaultEntries();
     }
   }

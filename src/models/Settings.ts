@@ -76,4 +76,26 @@ export class Settings implements SettingsData {
       languageCode: this.languageCode,
     };
   }
+
+  /**
+   * Validates if an object has valid SettingsData properties.
+   * Allows partial data since the Settings constructor handles defaults.
+   */
+  static isValidSettingsData(obj: unknown): obj is Partial<SettingsData> {
+    if (typeof obj !== 'object' || obj === null) return false;
+    const settings = obj as Record<string, unknown>;
+
+    // Check each property only if it exists
+    if ('promptToDelete' in settings && typeof settings.promptToDelete !== 'boolean') return false;
+    if ('showRunningBalance' in settings && typeof settings.showRunningBalance !== 'boolean')
+      return false;
+    if ('currencySymbol' in settings && typeof settings.currencySymbol !== 'string') return false;
+    if ('languageCode' in settings && typeof settings.languageCode !== 'string') return false;
+    if ('darkMode' in settings) {
+      const dm = settings.darkMode;
+      if (dm !== true && dm !== false && dm !== 'auto') return false;
+    }
+
+    return true;
+  }
 }

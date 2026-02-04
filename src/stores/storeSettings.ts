@@ -25,7 +25,7 @@ export const useStoreSettings = defineStore('settings', () => {
   );
 
   // Watch settings for auto-save
-  watch(settings, () => saveSettings());
+  watch(settings, () => saveSettings(),{deep:true});
 
   // Actions
   function saveSettings(): void {
@@ -34,8 +34,13 @@ export const useStoreSettings = defineStore('settings', () => {
 
   function loadSettings(): void {
     const saved = LocalStorage.getItem<SettingsData>('settings');
-    if (saved) {
-      Object.assign(settings.value, saved);
+
+    // Validate data from localStorage
+    if (Settings.isValidSettingsData(saved)) {
+      settings.value = new Settings(saved);
+    } else if (saved) {
+      console.warn('Invalid settings data in localStorage, using defaults');
+      settings.value = new Settings();
     }
   }
 
