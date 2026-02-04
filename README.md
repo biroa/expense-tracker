@@ -90,7 +90,8 @@ npm test --grep "should detect dark mode"
 ## To-do
 ````
 To-Do 
-- I'm aware of the settings page loses settings value when we navigate away (2026-01-06)
+- I'm aware of the settings page loses settings value when we navigate away (2026-01-06) - done
+- I'm aware of the sort of the items are not stored properly
 - Add unit tests for PINIA stores
 - Planning to test the app with (Playwright e2e testing)
 - AI integration
